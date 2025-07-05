@@ -1,0 +1,20 @@
+main {
+  background-color: var(--calculator-color);
+  aspect-ratio: 9/16; /*Mantenie la proporcion de pantalla que se desea modificar*/
+  border-radius: 20px;
+  height: 90%;
+  min-height: 600px;
+  box-shadow: var(--box-shadow);
+  padding: .5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+input{
+  grid-column: span 4;
+  text-align: right;
+  border: none;
+  background-color: var(--calculator-color);
+  padding: 0 .5rem;
+}
