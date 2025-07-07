@@ -8,6 +8,7 @@ function App() {
   const [data, setData] = useState({ operator: "", result: "" })
   const [theme, setTheme] = useState("light");
 
+  //Change the theme
   function handleChange(e) { 
     setTheme(e.target.checked ? "dark" : "light");
     return
