@@ -2,8 +2,8 @@ import React from 'react';
 import './Buttons.css';
 
 export default function Buttons(props) {
-  const {text, buttonClass} = props
+  const {text, buttonClass, handleClick} = props
   return(
-    <div className={buttonClass}>{text}</div>
+    <button className={buttonClass} onClick={handleClick}>{text}</button>
   )
 }
