@@ -1,10 +1,14 @@
 import React from "react";
 import "./CalcApp.css";
 import Buttons from "./Buttons";
+import Switch from "./Switch";
+
 export default function CalcApp(props) {
-  const { data, onButtonClick } = props;
+  const { data, onButtonClick, onChange } = props;
+
   return (
     <main className="CalApp">
+      <Switch onChange={onChange}/>
       <span className="result">{data.result}</span>
       <span className="display">{data.operator}</span>
 

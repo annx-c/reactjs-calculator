@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { evaluate } from "mathjs";
 
 import "./App.css";
 import Calculator from "./components/CalcApp";
 
 function App() {
-  const [data, setData] = useState({ operator: "", result: "" });
+  const [data, setData] = useState({ operator: "", result: "" })
+  const [theme, setTheme] = useState("light");
 
+  function handleChange(e) { 
+    setTheme(e.target.checked ? "dark" : "light");
+    return
+  }
+
+  useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
+    // Cambia el tema del body según el estado del tema
+    // Change the body theme based on the theme state
+  }, [theme])
+
+  // This function updates the operator and result based on the button clicked
+  // Esta función actualiza el operador y el resultado según el botón presionado
   function handleButtonClick(event) {
     const value = event.target.innerText;
 
@@ -128,7 +142,7 @@ function App() {
     setData({ ...data, operator: `${data.operator}` + value });
   }
 
-  return <Calculator data={data} onButtonClick={handleButtonClick} />;
+  return <Calculator data={data} onButtonClick={handleButtonClick}  onChange={handleChange}/>;
 }
 
 export default App;

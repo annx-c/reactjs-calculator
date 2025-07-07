@@ -10,6 +10,7 @@ main {
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   align-items: center;
+  transition: 1000ms;
 }
 
 span {
@@ -18,7 +19,7 @@ span {
   border: none;
   background-color: var(--calculator-color);
   padding: 0 0.5rem;
-
+  transition: 1000ms;
 }
 
 span.result {

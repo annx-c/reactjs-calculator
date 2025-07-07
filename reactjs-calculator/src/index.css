@@ -5,14 +5,20 @@
   --body-color: #17171C; /*#f1f2f3*/
   --calculator-color: #f1f2f3; /*#17171C*/
   --text-color: #000000; /*#FFFFFF*/
+  --slider-color: linear-gradient(135deg, #FFD700, #FF8C00, #FF4500);
+
   --primary-color: #4B5EFC;
   --secondary-color: #c8c9cf; /*#4E505F*/
   --thirtiary-color: #FFFFFF; /*2E2F38*/
 
   --box-shadow: 0 0 50px rgba(0, 0, 0, 0.20);
 
+}
+
+body{
   background-color: var(--body-color);
   color: var(--text-color);
+  transition:1000ms;
 }
 
 * {
@@ -26,4 +32,15 @@
   place-items: center;
 }
 
+[data-theme= "dark"]{
+  --body-color: #f1f2f3;
 
+  --calculator-color: #17171C;
+  --text-color: #FFFFFF;
+  --slider-color: linear-gradient(135deg, #dcdcdc, #b0b0b0, #4f4f4f);
+
+
+  --primary-color: #4B5EFC;
+  --secondary-color: #4E505F;
+  --thirtiary-color: #2E2F38;
+}

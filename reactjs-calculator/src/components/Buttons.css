@@ -4,6 +4,8 @@ button{
   background-color: var(--thirtiary-color);
   font-size: 2rem;
   aspect-ratio: 1 / 1;
+  color: var(--text-color);
+  transition:1000ms;
 }
 
 button:active{
