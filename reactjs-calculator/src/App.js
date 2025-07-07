@@ -19,7 +19,7 @@ function App() {
       value === "/" ||
       value === "%";
 
-    //Delete the operator 
+    //Delete the operator
     if (value === "❌") {
       setData({ ...data, operator: data.operator.slice(0, -1) });
       return;
@@ -48,6 +48,41 @@ function App() {
       return;
     }
 
+    // If the value is "+/-", toggle the sign of the operator
+    // Si el valor es "+/-" , cambia el signo del operador
+    if (value === "+/-") {
+
+      //Si hay resultado y no hay operación en curso
+      // If there is a result and no operation in progress
+      if (data.result !== "" && data.operator === "") {
+        if (data.result.slice(0, 1) === "-") {
+          setData({
+            ...data,
+            operator: `${data.result.slice(1, data.result.length)}`,
+          });
+        } else {
+          setData({ ...data, operator: `-${data.result}` });
+        }
+      }
+      
+      // Si no hay resultado pero sí hay operador
+      else if (data.operator !== "") {
+        if (data.operator.slice(0, 1) === "-") {
+          // If the operator starts with "-", remove it
+          // Si el operador comienza con "-", elimínalo
+          setData({
+            ...data,
+            operator: `${data.operator.slice(1, data.operator.length)}`,
+          });
+        } else {
+          // If the operator does not start with "-", add it
+          // Si el operador no comienza con "-", agrégalo
+          setData({ ...data, operator: `-${data.operator}` });
+        }
+      }
+      return;
+    }
+
     //Resolver
     if (value === "=") {
       try {
@@ -68,26 +103,6 @@ function App() {
         setData({ ...data, result: "Error" });
       }
 
-      return;
-    }
-
-    //Toggle Sign
-    if (value === "+/-" && data.operator !== "") {
-      // If the value is "+/-" and the operator is not empty, toggle the sign of the operator
-      // Si el valor es "+/-" y el operador no está vacío, cambia el signo del operador
-
-      if (data.operator.slice(0, 1) === "-") {
-        // If the operator starts with "-", remove it
-        // Si el operador comienza con "-", elimínalo
-        setData({
-          ...data,
-          operator: `${data.operator.slice(1, data.operator.length)}`,
-        });
-      } else {
-        // If the operator does not start with "-", add it
-        // Si el operador no comienza con "-", agrégalo
-        setData({ ...data, operator: `-${data.operator}` });
-      }
       return;
     }
 
